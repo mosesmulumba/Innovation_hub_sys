@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Hub Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='formats.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <h1>Innovation Hub System</h1>
+
+        <div class="form-section">
+            <form action="/insert" method="post">
+                <label for="table-insert">Table:</label>
+                <input type="text" id="table-insert" name="table" placeholder="Enter the table name" required><br>
+                
+                <label for="data-insert">Data (comma-separated):</label>
+                <input type="text" id="data-insert" name="data" placeholder="Enter the data you want to add" required><br>
+                
+                <input type="submit" value="Insert">
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Update Data</h2>
+            <form action="/update" method="post">
+                <label for="table-update">Table:</label>
+                <input type="text" id="table-update" name="table" placeholder="Enter the table name" required><br>
+                
+                <label for="column-update">Column:</label>
+                <input type="text" id="column-update" name="column" placeholder="Enter the table column" required><br>
+                
+                <label for="new_value-update">New value:</label>
+                <input type="text" id="new_value-update" name="new_value" placeholder="Enter the new value" required><br>
+                
+                <label for="condition-update">Condition:</label>
+                <input type="text" id="condition-update" name="condition" placeholder="Enter the condition e.g member_id=1" required><br>
+                
+                <input type="submit" value="Update">
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Delete Data</h2>
+            <form action="/delete" method="post">
+                <label for="table-delete">Table:</label>
+                <input type="text" id="table-delete" name="table" placeholder="Enter the table name" required><br>
+                
+                <label for="condition-delete">Condition:</label>
+                <input type="text" id="condition-delete" name="condition" placeholder="Enter the condition" required><br>
+                
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Create New Table</h2>
+            <form action="/create_table" method="post">
+                <label for="table_name-create">Table name:</label>
+                <input type="text" id="table_name-create" name="table_name" placeholder="Enter the new table name" required><br>
+                
+                <label for="columns-create">Columns:</label>
+                <input type="text" id="columns-create" name="columns" placeholder="Enter the table columns with their data-types" required><br>
+                
+                <input type="submit" value="Create Table">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
