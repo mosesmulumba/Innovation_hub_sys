@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovation Hub Database</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='formats.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='innovation_logo.jpeg') }}" style="border-radius: 0.3rem;">
 </head>
 <body>
     <div class="container">
@@ -12,6 +13,7 @@
         <h1>Innovation Hub System</h1>
 
         <div class="form-section">
+            <h2>Insert Data</h2>
             <form action="/insert" method="post">
                 <label for="table-insert">Table:</label>
                 <input type="text" id="table-insert" name="table" placeholder="Enter the table name" required><br>
