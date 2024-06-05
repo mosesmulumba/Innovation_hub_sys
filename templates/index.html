@@ -12,6 +12,33 @@
 
         <h1>Innovation Hub System</h1>
 
+        {% for table, rows in data.items() %}
+        <div class="table-section">
+            <h2>{{ table }}</h2>
+            <table class="styled-table">
+                <thead>
+                    {% if rows %}
+                        <tr>
+                            {% for key in rows[0].keys() %}
+                                <th>{{ key }}</th>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for value in row.values() %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+
+
         <div class="form-section">
             <h2>Insert Data</h2>
             <form action="/insert" method="post">

@@ -27,8 +27,19 @@ def connect_db():
 # create the home route
 @app.route("/")
 def index():
-    return render_template('index.html')
+    mydb = connect_db()
+    cursor = mydb.cursor(dictionary=True)
 
+    # List of tables to display
+    tables = ['Members', 'Collaboration', 'Faculties','Projects']
+    data = {}
+
+    for table in tables:
+        cursor.execute(f"SELECT * FROM {table}")
+        data[table] = cursor.fetchall()
+
+    mydb.close()
+    return render_template('index.html', data=data)
 
 # insert the data
 @app.route("/insert" , methods=['POST'])
