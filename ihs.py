@@ -1,8 +1,11 @@
 from flask import Flask , render_template , request , url_for , redirect
 import mysql.connector 
 from mysql.connector import errorcode
+# from config import Config
+
 
 app = Flask(__name__)
+# app.config.from_object(Config)
 
 # connect to the mysql database
 def connect_db():
@@ -31,7 +34,7 @@ def index():
     cursor = mydb.cursor(dictionary=True)
 
     # List of tables to display
-    tables = ['Members', 'Collaboration', 'Faculties','Projects']
+    tables = ['Faculties','Members', 'Projects','Collaboration' ]
     data = {}
 
     for table in tables:
